@@ -27,6 +27,15 @@ jobs:
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt
+    - name: Create Artifact
+      run: |
+         mkdir output
+         cp app.py output/
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: output/
 
     - name: Run Tests
       run: |
